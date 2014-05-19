@@ -55,7 +55,13 @@
       /* Show tour bullets? */
       showBullets: true,
       /* Scroll to highlighted element? */
-      scrollToElement: true
+      scrollToElement: true,
+      /* Show hide next time element */
+      showHideElement: false,
+      /* Hide next time label */
+      hideElementLabel: "Don't show again.",
+      /* Hide next time callback */
+      hideElementCallback: function() {}
     };
   }
 
@@ -648,6 +654,30 @@
 
       prevTooltipButton.href = 'javascript:void(0);';
       prevTooltipButton.innerHTML = this._options.prevLabel;
+
+      if (!!this._options.showHideElement) {
+        //hide button
+        var hideButtonContainer = document.createElement('div');
+        hideButtonContainer.className = 'introjs-hidecontainer';
+
+        var hideButtonLabel = document.createElement('label');
+        hideButtonLabel.innerHTML = this._options.hideElementLabel;
+
+        var hideButton = document.createElement('input');
+        hideButton.type = 'checkbox';
+        hideButton.className = 'introjs-button';
+        hideButton.href = 'javascript:void(0);';
+        hideButton.innerHTML = this._options.skipLabel;
+
+        var self = this;
+        hideButton.onclick = function() {
+          self._options.hideElementCallback();
+        };
+
+        hideButtonContainer.appendChild(hideButtonLabel);
+        hideButtonContainer.appendChild(hideButton);
+        buttonsLayer.appendChild(hideButtonContainer);
+      }
 
       //skip button
       var skipTooltipButton = document.createElement('a');

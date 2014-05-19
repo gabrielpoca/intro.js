@@ -117,8 +117,8 @@
   position: absolute;
   padding: 10px;
   background-color: white;
-  min-width: 200px;
-  max-width: 300px;
+  min-width: 350px;
+  max-width: 400px;
   border-radius: 3px;
   box-shadow: 0 1px 10px rgba(0,0,0,.4);
   -webkit-transition: opacity 0.1s ease-out;
@@ -130,6 +130,24 @@
 
 .introjs-tooltipbuttons {
   text-align: right;
+}
+
+/*
+ Checkbox style.
+*/
+
+.introjs-hidecontainer {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.introjs-hidecontainer * {
+  display: inline-block;
+}
+
+.introjs-hidecontainer label {
+  margin: 0 5px 0 0;
+  vertical-align: middle;
 }
 
 /* 
